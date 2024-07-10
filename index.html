@@ -4,7 +4,73 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>COLORMORIA</title>
-    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        #game-title {
+            color: red;
+        }
+
+        #start-button {
+            background-color: green;
+            color: white;
+            font-weight: bold;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        #instructions {
+            margin-top: 10px;
+            font-size: 1.2em;
+        }
+
+        #level-title {
+            margin-top: 20px;
+        }
+
+        #game-board {
+            display: grid;
+            gap: 5px;
+            margin-top: 20px;
+        }
+
+        .square {
+            width: 50px;
+            height: 50px;
+            border: 1px solid black;
+            cursor: pointer;
+        }
+
+        #result {
+            margin-top: 20px;
+            font-size: 1.5em;
+        }
+
+        #restart-button {
+            background-color: red;
+            color: white;
+            font-weight: bold;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            margin-top: 20px;
+            display: none;
+        }
+    </style>
 </head>
 <body>
     <h1 id="game-title">COLORMORIA</h1>
@@ -13,7 +79,8 @@
     <h2 id="level-title"></h2>
     <div id="game-board"></div>
     <p id="result"></p>
-    <button id="restart-button" style="display:none;">Perdiste, vuelve a empezar</button>
+    <button id="restart-button">Perdiste, vuelve a empezar</button>
+
     <script src="script.js"></script>
 </body>
 </html>
