@@ -1,9 +1,3 @@
-const startButton = document.getElementById('start-button');
-const gameBoard = document.getElementById('game-board');
-const levelTitle = document.getElementById('level-title');
-const result = document.getElementById('result');
-const restartButton = document.getElementById('restart-button');
-
 const colors = [
     { name: 'ROJO', code: '#ed1c09' },
     { name: 'NARANJA', code: '#ed4209' },
@@ -14,12 +8,55 @@ const colors = [
     { name: 'ROSA', code: '#e30eae' },
     { name: 'CELESTE', code: '#71e5eb' }
 ];
+
 let level = 1;
 let selectedColor = '';
 let timeout;
 
+const startButton = document.getElementById('start-button');
+const levelTitle = document.getElementById('level-title');
+const gameBoard = document.getElementById('game-board');
+const result = document.getElementById('result');
+const restartButton = document.getElementById('restart-button');
+
 function startGame() {
-    levelTitle.textContent = `${level}er nivel`;
+    let levelTitleText = '';
+    switch (level) {
+        case 1:
+            levelTitleText = '1er nivel';
+            break;
+        case 2:
+            levelTitleText = '2do nivel';
+            break;
+        case 3:
+            levelTitleText = '3er nivel';
+            break;
+        case 4:
+            levelTitleText = '4to nivel';
+            break;
+        case 5:
+            levelTitleText = '5to nivel';
+            break;
+        case 6:
+            levelTitleText = '6to nivel';
+            break;
+        case 7:
+            levelTitleText = '7mo nivel';
+            break;
+        case 8:
+            levelTitleText = '8vo nivel';
+            break;
+        case 9:
+            levelTitleText = '9no nivel';
+            break;
+        case 10:
+            levelTitleText = '10mo nivel';
+            break;
+        default:
+            levelTitleText = `Nivel ${level}`;
+            break;
+    }
+    levelTitle.textContent = levelTitleText;
     gameBoard.innerHTML = '';
     gameBoard.style.gridTemplateColumns = `repeat(${level + 1}, 50px)`;
     gameBoard.style.gridTemplateRows = `repeat(${level + 1}, 50px)`;
@@ -71,17 +108,17 @@ function endGame(message) {
     restartButton.style.display = 'block';
 }
 
-startButton.onclick = () => {
+startButton.addEventListener('click', () => {
     startButton.style.display = 'none';
     level = 1;
     result.textContent = '';
     startGame();
-};
+});
 
-restartButton.onclick = () => {
+restartButton.addEventListener('click', () => {
     restartButton.style.display = 'none';
     result.textContent = '';
     startButton.style.display = 'block';
     levelTitle.textContent = '';
     gameBoard.innerHTML = '';
-};
+});
